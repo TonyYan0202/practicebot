@@ -14,4 +14,11 @@ client.on( 'ready', (c) => {
     console.log(`Ready! Logged in as ${c.user.tag}`)
 });
 
+client.on( 'interactionCreate' , (interaction) => {
+    if (!interaction.isChatInputCommand()) return;
+    if (interaction.commandName === 'ping'){
+        interaction.reply('pong!!');
+    }
+});
+
 client.login(process.env.TOKEN);
